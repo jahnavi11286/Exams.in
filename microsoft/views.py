@@ -133,7 +133,7 @@ def addstudent(request):
                 ext = format.split('/')[-1]
                 data = ContentFile(base64.b64decode(imgstr))
                 file_name=studentid
-                connect_str=""
+                connect_str="DefaultEndpointsProtocol=https;AccountName=myazurecontainer1;AccountKey=XRe8+z8f4V7U9mKNU72o9sd4l3TN3+qcN1D6ctgUP8eeFA/Db9+Ugml5U9sFS88P8xC2vJ71vIAC+ASt6LzF3g==;EndpointSuffix=core.windows.net"
                 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
                 container_name="myazurecontainer"
                 blob_client = blob_service_client.get_blob_client(container=container_name, blob=file_name+'.png')
@@ -150,7 +150,7 @@ def addstudent(request):
                 format, imgstr = img_data.split(';base64,')
                 ext = format.split('/')[-1]
                 data = ContentFile(base64.b64decode(imgstr))
-                sub_key=''
+                sub_key='249505c284fb46f5828d4caf793bb041'
                 try:
                     Studentface=studentface.objects.get(studentid=studentid)
                 except:
@@ -220,7 +220,7 @@ def verifyface(request):
         format, imgstr = img_data.split(';base64,')
         ext = format.split('/')[-1]
         data = ContentFile(base64.b64decode(imgstr))
-        sub_key=''
+        sub_key='249505c284fb46f5828d4caf793bb041'
         Userface=studentface.objects.get(studentid=request.session['examuserid'])
         file1=Userface.url
         print(file1)
