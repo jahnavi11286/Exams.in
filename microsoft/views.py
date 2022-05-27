@@ -159,7 +159,7 @@ def addstudent(request):
                 print(file1)
                 response=requests.get(file1)
                 img_data1=BytesIO(response.content)
-                uri_base="https://facerecogbynvs.cognitiveservices.azure.com/"
+                uri_base="https://jahnavi.cognitiveservices.azure.com/"
                 headers = {
                 'Content-Type': 'application/octet-stream',
                 'Ocp-Apim-Subscription-Key': sub_key,
@@ -226,7 +226,7 @@ def verifyface(request):
         print(file1)
         response=requests.get(file1)
         img_data1=BytesIO(response.content)
-        uri_base="https://facerecogbynvs.cognitiveservices.azure.com/"
+        uri_base="https://jahnavi.cognitiveservices.azure.com/"
         headers = {
         'Content-Type': 'application/octet-stream',
         'Ocp-Apim-Subscription-Key': sub_key,
