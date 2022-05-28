@@ -137,7 +137,10 @@ def addstudent(request):
                 blob_service_client = BlobServiceClient.from_connection_string(connect_str)
                 container_name="myazurecontainer"
                 blob_client = blob_service_client.get_blob_client(container=container_name, blob=file_name+'.png')
-                blob_client.upload_blob(data)
+                try:
+                    blob_client.upload_blob(data)
+                except:
+                    return HttpResponse("<h1>Student details are added already</h1>")
                 print(blob_client.url)
                 Studentface=studentface()
                 Studentface.studentid=studentid
@@ -189,7 +192,7 @@ def addstudent(request):
                         json_str=parsed[0]
                         faceid_list.append(json_str['faceId'])
                 except Exception as e:
-                    print(e)
+                    return HttpResponse("<h1>"+e+"</h1>")
                 print(faceid_list)
                 data={"faceId1":faceid_list[0],"faceId2":faceid_list[1]}
                 data_json=json.dumps(data)
@@ -256,7 +259,7 @@ def verifyface(request):
                 json_str=parsed[0]
                 faceid_list.append(json_str['faceId'])
         except Exception as e:
-            print(e)
+            return HttpResponse("<h1>"+e+"</h1>")
         print(faceid_list)
         data={"faceId1":faceid_list[0],"faceId2":faceid_list[1]}
         data_json=json.dumps(data)
