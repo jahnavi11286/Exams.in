@@ -89,7 +89,7 @@ DATABASES = {
 
         'PASSWORD': 'engage@123',
 
-        'HOST': 'microsoftengage.postgres.database.azure.com',
+        'HOST': 'mydb1.postgres.database.azure.com',
 
         'PORT': '5432',
 
