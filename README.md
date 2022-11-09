@@ -1,5 +1,5 @@
 # microsoft-engage
-Azure demo link:http://examsin.azurewebsites.net/
+Azure demo link:https://gbootcamp.azurewebsites.net/
 
 Steps to run my application locally
 
